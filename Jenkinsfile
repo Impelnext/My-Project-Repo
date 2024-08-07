@@ -1,49 +1,41 @@
-#!groovy
-import groovy.json.JsonSlurperClassic
-
-node {
-
-    def BUILD_NUMBER = env.BUILD_NUMBER
-    def SFDC_USERNAME = env.SFDC_USERNAME
-    def HUB_ORG = env.HUB_ORG_DH
-    def SFDC_HOST = env.SFDC_HOST_DH
-    def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
-    def CONNECTED_APP_CONSUMER_KEY = env.CONNECTED_APP_CONSUMER_KEY_DH
-
-    println 'KEY IS'
-    println JWT_KEY_CRED_ID
-    println HUB_ORG
-    println SFDC_HOST
-    println CONNECTED_APP_CONSUMER_KEY
+pipeline {
+    agent any // Use any available Jenkins agent
     
-    // Specify the correct path to the Salesforce CLI tool
-    def toolbelt = "C:\\Program Files\\sf\\bin\\sf.cmd"
-
-    stage('checkout source') {
-        checkout scm
+    environment {
+        JWT_KEY_FILE = credentials('16dac807-3c9e-4e29-84af-526ab4a3e0ac') // Updated Jenkins credential ID
     }
-
-    withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Authorize Salesforce') {
+            steps {
+                script {
+                    bat """
+                    "C:\\Program Files\\sf\\bin\\sf.cmd" force:auth:jwt:grant --client-id 3MVG9fe4g9fhX0E5LtKVD2LmourXdGJM23GOJgTC.3naYqPKtmgHdIXvfVw3B3KLgUnHFL9B9tfXwC7w2c6PP --username babanpawar7387@gmail.com --jwt-key-file ${env.JWT_KEY_FILE} --set-default-dev-hub --instance-url https://login.salesforce.com
+                    """
+                }
+            }
+        }
+        
         stage('Deploy Code') {
-            if (isUnix()) {
-                rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
-            } else {
-                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+            steps {
+                script {
+                    bat """
+                    "C:\\Program Files\\sf\\bin\\sf.cmd" project deploy start -d manifest/ --target-org babanpawar7387@gmail.com || exit /b %ERRORLEVEL%
+                    """
+                }
             }
-            if (rc != 0) { error 'hub org authorization failed' }
-
-            println rc
-
-            // Need to pull out assigned username
-            if (isUnix()) {
-                rmsg = sh returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
-            } else {
-                rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
-            }
-
-            printf rmsg
-            println('Hello from a Job DSL script!')
-            println(rmsg)
+        }
+    }
+    
+    post {
+        always {
+            cleanWs() // Clean workspace
         }
     }
 }
