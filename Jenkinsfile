@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     bat """
-                    "C:\\Program Files\\sf\\bin\\sf.cmd" project deploy start -d manifest/ --target-org babanpawar7387@gmail.com --wait 10 --verbose || exit /b %ERRORLEVEL%
+                    "C:\\Program Files\\sf\\bin\\sf.cmd" deploy metadata --target-org babanpawar7387@gmail.com --verbose
                     """
                 }
             }
