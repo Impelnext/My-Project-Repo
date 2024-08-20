@@ -1,17 +1,17 @@
 pipeline {
     agent any // Use any available Jenkins agent
-    
+
     environment {
         JWT_KEY_FILE = credentials('16dac807-3c9e-4e29-84af-526ab4a3e0ac') // Updated Jenkins credential ID
     }
-    
+
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-        
+
         stage('Authorize Salesforce') {
             steps {
                 script {
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Deploy Code and Run Tests') {
             steps {
                 script {
@@ -32,7 +32,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             cleanWs() // Clean workspace
