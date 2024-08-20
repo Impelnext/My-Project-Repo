@@ -22,11 +22,11 @@ pipeline {
             }
         }
         
-        stage('Deploy Code') {
+        stage('Deploy Code and Run Tests') {
             steps {
                 script {
                     bat """
-                    "C:\\Program Files\\sf\\bin\\sf.cmd" deploy metadata --target-org babanpawar7387@gmail.com --verbose
+                    "C:\\Program Files\\sf\\bin\\sf.cmd" deploy metadata --target-org babanpawar7387@gmail.com --test-level RunLocalTests --verbose
                     """
                 }
             }
