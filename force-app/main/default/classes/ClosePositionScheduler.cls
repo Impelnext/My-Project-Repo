@@ -11,6 +11,7 @@ global class ClosePositionScheduler implements Schedulable {
             position.Close_Position__c =true;
         }
         update positionToClose;
+        //Update
     }
 
 }
