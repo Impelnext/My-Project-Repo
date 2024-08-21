@@ -12,7 +12,7 @@ public class AccountHandlerTest {
 
     @isTest
     static void testUpdateAccountIndustry() {
-        // Verify initial state
+        // Verify initial state11
         List<Account> initialAccounts = [SELECT Id, Industry FROM Account];
         System.assertEquals(2, initialAccounts.size(), 'There should be 2 accounts in the system.');
         System.assertEquals('Technology', initialAccounts[0].Industry);
