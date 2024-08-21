@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insurance_No__c</fullName>
+    <label>Insurance No</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>INS-(000)</fullName>
+                <default>false</default>
+                <label>INS-(000)</label>
+            </value>
+            <value>
+                <fullName>INS-(0001)</fullName>
+                <default>false</default>
+                <label>INS-(0001)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

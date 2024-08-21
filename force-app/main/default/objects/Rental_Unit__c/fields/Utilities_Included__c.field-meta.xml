@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Utilities_Included__c</fullName>
+    <label>Utilities Included</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cool Water</fullName>
+                <default>false</default>
+                <label>Cool Water</label>
+            </value>
+            <value>
+                <fullName>Hot Water</fullName>
+                <default>false</default>
+                <label>Hot Water</label>
+            </value>
+            <value>
+                <fullName>Gas</fullName>
+                <default>false</default>
+                <label>Gas</label>
+            </value>
+            <value>
+                <fullName>Electric</fullName>
+                <default>false</default>
+                <label>Electric</label>
+            </value>
+            <value>
+                <fullName>Sewage</fullName>
+                <default>false</default>
+                <label>Sewage</label>
+            </value>
+            <value>
+                <fullName>Trash</fullName>
+                <default>false</default>
+                <label>Trash</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

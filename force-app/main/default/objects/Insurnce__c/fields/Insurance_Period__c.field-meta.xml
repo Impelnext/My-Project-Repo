@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insurance_Period__c</fullName>
+    <label>Insurance Period</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>10,</fullName>
+                <default>false</default>
+                <label>10,</label>
+            </value>
+            <value>
+                <fullName>20,</fullName>
+                <default>false</default>
+                <label>20,</label>
+            </value>
+            <value>
+                <fullName>30,</fullName>
+                <default>false</default>
+                <label>30,</label>
+            </value>
+            <value>
+                <fullName>3,</fullName>
+                <default>false</default>
+                <label>3,</label>
+            </value>
+            <value>
+                <fullName>2,</fullName>
+                <default>false</default>
+                <label>2,</label>
+            </value>
+            <value>
+                <fullName>15</fullName>
+                <default>false</default>
+                <label>15</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Term Plan</controllingFieldValue>
+            <controllingFieldValue>Unit linked Insurance Plan</controllingFieldValue>
+            <valueName>10,</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Term Plan</controllingFieldValue>
+            <valueName>20,</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Term Plan</controllingFieldValue>
+            <controllingFieldValue>Unit linked Insurance Plan</controllingFieldValue>
+            <valueName>15</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Third Party Insurance</controllingFieldValue>
+            <valueName>3,</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Third Party Insurance</controllingFieldValue>
+            <controllingFieldValue>Fire</controllingFieldValue>
+            <valueName>2,</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

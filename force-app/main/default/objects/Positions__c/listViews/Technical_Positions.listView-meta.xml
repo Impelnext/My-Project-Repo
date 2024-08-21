@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Technical_Positions</fullName>
+    <columns>NAME</columns>
+    <columns>Days_Open__c</columns>
+    <columns>Status__c</columns>
+    <columns>Type__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Positions__c.Technical_Position</value>
+    </filters>
+    <label>Technical Positions</label>
+</ListView>

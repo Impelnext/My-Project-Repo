@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stream_Optain__c</fullName>
+    <label>Stream Optain</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cloud Computing</fullName>
+                <default>false</default>
+                <label>Cloud Computing</label>
+            </value>
+            <value>
+                <fullName>Core Programing</fullName>
+                <default>false</default>
+                <label>Core Programing</label>
+            </value>
+            <value>
+                <fullName>Data Science</fullName>
+                <default>false</default>
+                <label>Data Science</label>
+            </value>
+            <value>
+                <fullName>Development</fullName>
+                <default>false</default>
+                <label>Development</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
